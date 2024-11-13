@@ -1,7 +1,3 @@
-Aqui está uma versão mais completa e robusta do seu README.md, incorporando as informações do documento de instruções para o trabalho:
-
----
-
 # Sistema Financeiro - Contas a Receber
 
 Um sistema web completo para gerenciamento de contas a receber, desenvolvido com TypeScript, Node.js, React e PostgreSQL. Este projeto foi realizado para o módulo financeiro de um ERP, conforme as instruções da disciplina de Desenvolvimento Web III.
