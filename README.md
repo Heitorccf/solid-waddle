@@ -1,6 +1,14 @@
+Aqui está uma versão mais completa e robusta do seu README.md, incorporando as informações do documento de instruções para o trabalho:
+
+---
+
 # Sistema Financeiro - Contas a Receber
 
-Um sistema web completo para gerenciamento de contas a receber, desenvolvido com TypeScript, Node.js, React e PostgreSQL.
+Um sistema web completo para gerenciamento de contas a receber, desenvolvido com TypeScript, Node.js, React e PostgreSQL. Este projeto foi realizado para o módulo financeiro de um ERP, conforme as instruções da disciplina de Desenvolvimento Web III.
+
+## 📚 Sobre o Projeto
+
+Este sistema permite a administração de contas a receber de maneira prática e segura, oferecendo um conjunto completo de operações de CRUD. O sistema foi desenvolvido em arquitetura Cliente-Servidor, utilizando uma API RESTful para o backend e uma interface amigável e responsiva para o frontend.
 
 ## 🚀 Tecnologias Utilizadas
 
@@ -82,20 +90,34 @@ O frontend estará rodando em http://localhost:3001
 
 ## 🌟 Funcionalidades
 
-### Autenticação
+### Autenticação e Controle de Sessão
 
-- Registro de usuários
-- Login
-- Proteção de rotas
+- Registro de usuários com campos personalizados
+- Login com validação
+- Proteção de rotas com verificação de autenticação via JWT
 - Controle de acesso baseado em papéis (admin/usuário comum)
 
-### Contas a Receber
+### Gerenciamento de Contas a Receber
 
-- Listagem de todas as contas
-- Criação de novas contas
-- Edição de contas existentes (apenas admin)
-- Exclusão de contas (apenas admin)
-- Visualização detalhada
+- **Listagem de Contas**: Visualize todas as contas que não foram excluídas
+- **Detalhes de Conta**: Exibe informações detalhadas de cada conta
+- **Criação de Contas**: Adicione novas contas ao sistema
+- **Edição de Contas** (apenas para admin): Atualize informações existentes
+- **Exclusão de Contas** (apenas para admin): Realiza uma exclusão lógica das contas, marcando-as como removidas
+
+### APIs e Regras de Negócio
+
+O backend implementa um conjunto de APIs RESTful para gerenciamento de contas a receber, seguindo o padrão CRUD. Cada operação foi projetada de acordo com as instruções para o projeto:
+
+- **GetAllAccounts**: Retorna todas as contas não removidas
+- **GetAccountById**: Retorna uma conta específica pelo ID (desde que não esteja removida)
+- **CreateAccount**: Insere uma nova conta
+- **UpdateAccount**: Atualiza uma conta existente (requer ID)
+- **DeleteAccount**: Realiza um soft delete, marcando a conta como removida
+
+### No Frontend
+
+Para cada API do backend, há uma função correspondente que realiza a comunicação necessária para consumir os dados, mantendo o frontend sempre atualizado com o backend.
 
 ## 👥 Papéis de Usuário
 
@@ -103,13 +125,13 @@ O frontend estará rodando em http://localhost:3001
 
 - Acesso total ao sistema
 - Pode criar, editar e excluir contas
-- Visualização de todas as informações
+- Visualização completa de todas as informações do sistema
 
 ### Usuário Comum
 
-- Pode visualizar todas as contas
-- Pode criar novas contas
-- Não pode editar ou excluir contas
+- Visualização das contas
+- Criação de novas contas
+- Sem permissão para editar ou excluir contas
 
 ## 🔐 Variáveis de Ambiente
 
@@ -153,13 +175,17 @@ financial-system/
 
 1. Acesse http://localhost:3001
 2. Faça login ou crie uma nova conta
-3. Para criar uma conta admin, use a rota de registro com o campo isAdmin: true
+3. Para criar uma conta admin, use a rota de registro com o campo `isAdmin: true`
 4. Comece a gerenciar suas contas a receber!
 
 ## 🔒 Segurança
 
-- Senhas são hasheadas com bcrypt
-- Autenticação via JWT
+- Senhas hasheadas com bcrypt
+- Autenticação via JWT para proteção de rotas
 - Proteção contra CSRF
 - Validação de dados com Yup
 - Controle de acesso baseado em papéis
+
+## 📊 Avaliação e Entrega
+
+Projeto desenvolvido para avaliação na disciplina de Desenvolvimento Web III, Bacharelado em Sistemas de Informação. A entrega foi realizada no Github com apresentação final em seminário, conforme orientações do curso.
