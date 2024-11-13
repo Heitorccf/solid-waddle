@@ -1,4 +1,6 @@
+// src/services/api.ts
 import axios from "axios";
+import { Receivable } from "../types";
 
 const api = axios.create({
   baseURL: "http://localhost:3000",
@@ -33,6 +35,12 @@ export const auth = {
   },
 };
 
+interface CreateReceivableData {
+  description: string;
+  amount: number;
+  dueDate: string;
+}
+
 export const receivables = {
   getAll: async () => {
     const response = await api.get("/receivables");
@@ -42,11 +50,11 @@ export const receivables = {
     const response = await api.get(`/receivables/${id}`);
     return response.data;
   },
-  create: async (data: Omit<Receivable, "id" | "user" | "removed">) => {
+  create: async (data: CreateReceivableData) => {
     const response = await api.post("/receivables", data);
     return response.data;
   },
-  update: async (id: number, data: Partial<Receivable>) => {
+  update: async (id: number, data: Partial<CreateReceivableData>) => {
     const response = await api.put(`/receivables/${id}`, data);
     return response.data;
   },
