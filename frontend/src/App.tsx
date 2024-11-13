@@ -1,26 +1,42 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+// src/App.tsx
+import React from "react";
+import { Routes, Route, Navigate } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Receivables from "./pages/Receivables";
+import PrivateRoute from "./components/PrivateRoute";
+import { useAuth } from "./contexts/AuthContext";
 
-function App() {
+const App = () => {
+  const { isAuthenticated } = useAuth();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {isAuthenticated && <Navbar />}
+      <Routes>
+        <Route
+          path="/login"
+          element={isAuthenticated ? <Navigate to="/receivables" /> : <Login />}
+        />
+        <Route
+          path="/register"
+          element={
+            isAuthenticated ? <Navigate to="/receivables" /> : <Register />
+          }
+        />
+        <Route
+          path="/receivables"
+          element={
+            <PrivateRoute>
+              <Receivables />
+            </PrivateRoute>
+          }
+        />
+        <Route path="/" element={<Navigate to="/receivables" />} />
+      </Routes>
     </div>
   );
-}
+};
 
 export default App;
