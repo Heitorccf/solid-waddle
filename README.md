@@ -35,8 +35,7 @@ Um sistema web completo para gerenciamento de contas a receber, desenvolvido com
 ### 1. Clone o repositório
 
 ```bash
-git clone [URL_DO_SEU_REPOSITORIO]
-cd financial-system
+https://github.com/Heitorccf/solid-waddle.git
 ```
 
 ### 2. Configuração do Banco de Dados
