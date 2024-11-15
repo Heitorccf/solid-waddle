@@ -1,48 +1,66 @@
-# Dependencies
+# Dependências
+# Ignora a pasta de módulos do Node.js que é gerada automaticamente após a instalação das dependências
 **/node_modules/
+
+# Arquivos do PnP (Plug'n'Play) do Yarn, caso esteja usando o Yarn como gerenciador de pacotes
 /.pnp
 .pnp.js
 
-# Testing
+# Testes
+# Ignora a pasta onde os resultados de cobertura de testes são armazenados
 /coverage
 
-# Production
+# Produção
+# Ignora as pastas de build e dist, que contêm os arquivos de produção gerados após o build
 **/build/
 **/dist/
 
-# Misc
+# Arquivos e pastas específicas do sistema ou de configuração
+# Arquivos específicos do macOS que não são necessários no repositório
 .DS_Store
+
+# Arquivos de configuração de variáveis de ambiente, que podem ser diferentes em cada ambiente
 .env
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
+
+# Pastas de configurações de IDEs e editores
+# Ignora pastas criadas pelo IDE como o IntelliJ IDEA e o Visual Studio Code
 .idea/
 .vscode/
 
-# Debug logs
+# Logs de depuração
+# Ignora logs gerados durante a execução de comandos npm ou yarn
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
 # TypeScript
+# Ignora os arquivos de informações de compilação do TypeScript
 *.tsbuildinfo
 
-# Optional npm cache directory
+# Cache opcional do npm
+# Ignora a pasta de cache do npm que pode ser recriada automaticamente
 .npm
 
-# Optional eslint cache
+# Cache opcional do eslint
+# Ignora a pasta onde o eslint armazena o cache das verificações anteriores
 .eslintcache
 
-# Docker volumes
+# Volumes do Docker
+# Ignora volumes persistentes criados pelo Docker (exemplo: banco de dados)
 pgdata/
 
-# Backend specific
+# Específico para o backend
+# Ignora a pasta de build e módulos do backend, além do arquivo de variáveis de ambiente do backend
 backend/dist/
 backend/node_modules/
 backend/.env
 
-# Frontend specific
+# Específico para o frontend
+# Ignora a pasta de build e módulos do frontend, além do arquivo de variáveis de ambiente do frontend
 frontend/build/
 frontend/node_modules/
 frontend/.env
